@@ -1,0 +1,398 @@
+/* CSS Styles for Adhkar Website */
+:root {
+  /* Light Theme Colors */
+  --primary-color: #1f6e8c;
+  --secondary-color: #84a7a1;
+  --accent-color: #e76f51;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --pattern-color: rgba(31, 110, 140, 0.1);
+
+  /* Font Sizes */
+  --font-size-base: 18px;
+  --font-size-small: 14px;
+  --font-size-medium: 20px;
+  --font-size-large: 24px;
+  --font-size-xlarge: 32px;
+}
+
+/* Dark Theme Colors */
+[data-theme="dark"] {
+  --primary-color: #2a9d8f;
+  --secondary-color: #457b9d;
+  --accent-color: #e9c46a;
+  --background-color: #121212;
+  --card-background: #1e1e1e;
+  --text-color: #f0f0f0;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --pattern-color: rgba(42, 157, 143, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-family: "Amiri", "Scheherazade New", serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header Styles */
+header {
+  position: relative;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  background-color: var(--card-background);
+  box-shadow: 0 4px 6px var(--shadow-color);
+  overflow: hidden;
+}
+
+.islamic-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%231f6e8c" fill-opacity="0.1" d="M50 0L90 25L90 75L50 100L10 75L10 25Z"></path></svg>');
+  background-size: 100px 100px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+h1 {
+  font-size: var(--font-size-xlarge);
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  font-size: var(--font-size-medium);
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.font-size-control {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: "Amiri", "Scheherazade New", serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Navigation Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  font-size: var(--font-size-medium);
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+}
+
+.tab-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Main Content */
+main {
+  margin-bottom: 3rem;
+}
+
+.adhkar-section {
+  display: none;
+}
+
+.adhkar-section.active {
+  display: block;
+}
+
+h2 {
+  font-size: var(--font-size-large);
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin: 0.5rem auto 0;
+  border-radius: 3px;
+}
+
+.adhkar-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* Dhikr Card Styles */
+.dhikr-card {
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dhikr-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+.dhikr-content {
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.dhikr-text {
+  flex: 1;
+}
+
+h3 {
+  font-size: var(--font-size-medium);
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  border-right: 3px solid var(--accent-color);
+  padding-right: 0.75rem;
+}
+
+.arabic-text {
+  font-size: var(--font-size-medium);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.hadith-source {
+  font-size: var(--font-size-small);
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+.dhikr-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.counter-text {
+  font-size: var(--font-size-large);
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.counter-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.counter-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.dhikr-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: var(--pattern-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.mark-read-btn,
+.share-btn {
+  font-size: var(--font-size-small);
+  padding: 0.5rem 1rem;
+}
+
+.mark-read-btn.completed {
+  background-color: #4caf50;
+}
+
+/* Footer Styles */
+footer {
+  position: relative;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0 -2px 6px var(--shadow-color);
+  overflow: hidden;
+}
+
+.developer {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.footer-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .adhkar-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .adhkar-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --font-size-base: 16px;
+    --font-size-small: 12px;
+    --font-size-medium: 18px;
+    --font-size-large: 22px;
+    --font-size-xlarge: 28px;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  header {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .dhikr-content {
+    flex-direction: column;
+  }
+
+  .dhikr-counter {
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+/* Animation for Islamic Pattern */
+@keyframes patternMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+.islamic-pattern {
+  animation: patternMove 60s linear infinite;
+}
+
+/* Transition Effects */
+.adhkar-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.adhkar-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Completed Dhikr Card */
+.dhikr-card.completed {
+  border-left: 5px solid #4caf50;
+}
+
+/* Accessibility Focus Styles */
+button:focus,
+a:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
